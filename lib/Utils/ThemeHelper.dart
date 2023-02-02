@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+
+import 'Colors.dart';
 class ThemeHelper{
 
   InputDecoration textInputDecoration([String lableText="", String hintText = ""]){
@@ -87,8 +89,11 @@ class ThemeHelper{
     );
   }
 
-}
 
+}
+backButton({icon, onTap}){
+  return IconButton(onPressed: onTap, icon: Icon(icon, color: colorSecondary, size: 20,));
+}
 class LoginFormStyle{
 
 }

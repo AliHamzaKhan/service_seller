@@ -9,6 +9,7 @@ import '../Screens/Job/JobScreen.dart';
 import '../Screens/Support/SupportScreen.dart';
 
 class MainController extends GetxController{
+  static MainController instance = Get.find();
   var pages = [
     HomeScreen(),
     JobScreen(),

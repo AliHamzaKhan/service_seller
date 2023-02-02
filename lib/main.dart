@@ -6,6 +6,7 @@ import 'Constant/MainAccess.dart';
 import 'Controllers/AuthController.dart';
 import 'Routes/MyRoutes.dart';
 import 'Screens/Home/HomeScreen.dart';
+import 'Screens/Main/MainScreen.dart';
 import 'Screens/Registry/LogInScreen.dart';
 import 'Screens/Registry/RegisterUserScreen.dart';
 
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
       ),
       getPages:  MyRoutes.getPages,
-      home: HomeScreen(),
+      home: MainScreen(),
     );
   }
 }
