@@ -8,24 +8,20 @@ class CategoryShimmerDesign extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      itemCount: 10,
+        itemCount: 10,
         shrinkWrap: true,
-      physics: BouncingScrollPhysics(),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        physics: const BouncingScrollPhysics(),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: 3 / 2,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20,
             crossAxisCount: 2),
         itemBuilder: (context, index) => Shimmer.fromColors(
-              baseColor: Colors.grey,
+              baseColor: Colors.grey.shade300,
               highlightColor: Colors.white,
-              child: Column(
-                children: [
-                  Container(
-                    height: Get.width / 2,
-                    color: Colors.white30,
-                  )
-                ],
+              child: Container(
+                height: (Get.width / 2),
+                color: Colors.white30,
               ),
             ));
   }

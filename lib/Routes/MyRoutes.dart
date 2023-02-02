@@ -3,6 +3,7 @@
 import 'package:get/get.dart';
 import 'package:service_seller/Binding/HomeBinding.dart';
 
+import '../Binding/MainBinding.dart';
 import '../Screens/Dashboard/DashboardScreen.dart';
 import '../Screens/Home/HomeScreen.dart';
 import '../Screens/Registry/ForgotPasswordScreen.dart';
@@ -12,6 +13,7 @@ import '../Screens/Registry/VerificationScreen.dart';
 
 class MyRoutes{
   static var getPages = [
+    GetPage(name: '/main', page: () => HomeScreen(), binding: MainBinding()),
     GetPage(name: '/home', page: () => HomeScreen(), binding: HomeBinding()),
     GetPage(name: '/register', page: () => RegisterUserScreen()),
     GetPage(name: '/login', page: () => LogInScreen()),
