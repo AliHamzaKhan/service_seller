@@ -9,21 +9,16 @@ class BannerShimmerDesign extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: Get.width,
-      height: 100,
-      child: Shimmer.fromColors(
-        baseColor: Colors.grey,
-        highlightColor: Colors.white,
-        child: Text(
-          'Loading...',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 35.0,
-            fontWeight:
-            FontWeight.bold,
-          ),
-        ),
+    return Shimmer.fromColors(
+      baseColor: Colors.grey,
+      highlightColor: Colors.white,
+      child:Column(
+        children: [
+            Container(
+              height: 100,
+              color: Colors.white30,
+            )
+        ],
       ),
     );
   }

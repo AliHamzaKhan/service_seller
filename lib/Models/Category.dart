@@ -2,12 +2,10 @@
 
 class Category{
   String? id;
-  String? title;
+  String? name;
   String? description;
+  String? image;
   String? serviceType;
-  double? amount;
-  double? hours;
-  bool? needMaterial;
 
-  Category({this.id, this.title, this.description, this.serviceType, this.amount, this.hours, this.needMaterial});
+  Category({this.id, this.name, this.description,this.image ,this.serviceType});
 }

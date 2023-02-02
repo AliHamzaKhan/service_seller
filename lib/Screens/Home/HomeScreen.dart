@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:service_seller/Controllers/HomeController.dart';
@@ -5,12 +6,13 @@ import 'package:service_seller/Screens/Home/adBanners/BannerListDesign.dart';
 import 'package:service_seller/Screens/Home/adBanners/BannerShimmerDesign.dart';
 import '../../Constant/MainAccess.dart';
 import '../../Utils/Colors.dart';
-import 'Catogery/CategoryCardDesign.dart';
-import 'Catogery/CategoryShimmerDesign.dart';
+import 'Category/CategoryGridList.dart';
+import 'Category/CategoryShimmerDesign.dart';
 import 'HeaderWithSearchBar.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
+
   var controller = Get.put(HomeController());
 
   @override
@@ -33,12 +35,11 @@ class HomeScreen extends StatelessWidget {
           style: TextStyle(
               color: colorTitle, fontSize: 25, fontWeight: FontWeight.bold),
         ),
-        actions: [],
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,7 +47,7 @@ class HomeScreen extends StatelessWidget {
               HeaderWithSearchBar(
                 userName: "Ali",
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 "Promotions",
                 style: TextStyle(
@@ -54,10 +55,11 @@ class HomeScreen extends StatelessWidget {
                     fontSize: 18,
                     fontWeight: FontWeight.w500),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Obx(() => controller.isBannerLoaded.value
                   ? BannerListDesign(bannersList: controller.bannersList)
-                  : BannerShimmerDesign()),
+                  : const BannerShimmerDesign()),
+              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -76,10 +78,14 @@ class HomeScreen extends StatelessWidget {
                       ))
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Obx(() => controller.isCategoryLoaded.value
-                  ? CategoryCardDesign()
-                  : CategoryShimmerDesign())
+                  ? CategoryGridList(
+                categoriesList: controller.categoryList,
+              )
+                  : const CategoryShimmerDesign()
+              ),
+              const SizedBox(height: 30),
             ],
           ),
         ),

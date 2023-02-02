@@ -6,15 +6,22 @@ import 'package:flutter/material.dart';
 import '../../../Models/Banner.dart';
 import 'BannerCardDesign.dart';
 
-class BannerListDesign extends StatelessWidget {
+class BannerListDesign extends StatefulWidget {
   BannerListDesign({Key? key,required this.bannersList }) : super(key: key);
   List<MyBanner> bannersList;
+
+  @override
+  State<BannerListDesign> createState() => _BannerListDesignState();
+}
+
+class _BannerListDesignState extends State<BannerListDesign> {
+  late List<Widget> images;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         CarouselSlider(
-            items: bannersList.map((e) => BannerCardDesign(myBanner: e,)).toList(),
+            items: widget.bannersList.map((e) => BannerCardDesign(myBanner: e,)).toList(),
             options: CarouselOptions(
               height: 120,
               aspectRatio: 16/9,
@@ -35,5 +42,11 @@ class BannerListDesign extends StatelessWidget {
         Container()
       ],
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    //images = widget.bannersList.map((e) => MyBanner()).toList();
   }
 }

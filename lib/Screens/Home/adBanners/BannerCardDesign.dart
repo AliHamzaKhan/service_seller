@@ -12,6 +12,7 @@ class BannerCardDesign extends StatelessWidget {
   Widget build(BuildContext context) {
     return CachedNetworkImage(
         imageUrl: myBanner.bannerImage!,
+        fit: BoxFit.cover,
         imageBuilder: (context, imageProvider) => Container(
           height: 100,
           decoration: BoxDecoration(
