@@ -14,8 +14,10 @@ class MainScreen extends StatelessWidget {
       bottomNavigationBar: GetBuilder<MainController>(
         builder: (controller){
           return Container(
-            margin: EdgeInsets.all(20),
-            height: size.width * .140,
+            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            height: 70,
+            width: Get.width,
+            alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [
@@ -30,7 +32,7 @@ class MainScreen extends StatelessWidget {
             child: ListView.builder(
               itemCount: controller.pages.length,
               scrollDirection: Axis.horizontal,
-              padding: EdgeInsets.symmetric(horizontal: size.width * .010),
+              padding: EdgeInsets.symmetric(horizontal: 10),
               itemBuilder: (context, index) => InkWell(
                 onTap: () {
                   controller.currentIndex.value = index;
@@ -39,18 +41,20 @@ class MainScreen extends StatelessWidget {
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     AnimatedContainer(
                       duration: Duration(milliseconds: 500),
                       curve: Curves.fastLinearToSlowEaseIn,
                       margin: EdgeInsets.only(
-                        bottom: index == controller.currentIndex.value ? 0 : size.width * .020,
-                        right: size.width * .0322,
-                        left: size.width * .0322,
+                        // bottom: index == controller.currentIndex.value ? 0 : 10,
+                        top: index == controller.currentIndex.value ? 0 : 10,
+                        right: 20,
+                        left: 20,
                       ),
-                      width: size.width * .115,
-                      height: index == controller.currentIndex.value ? size.width * .010 : 0,
+                      width: 45,
+                      height: index == controller.currentIndex.value ? 5 : 0,
                       decoration: BoxDecoration(
                         color: colorSecondary,
                         borderRadius: BorderRadius.vertical(
@@ -60,12 +64,21 @@ class MainScreen extends StatelessWidget {
                     ),
                     Icon(
                       listOfIcons[index],
-                      size: size.width * .050,
+                      size: 25,
                       color: index == controller.currentIndex.value
                           ? colorSecondary
                           : colorBlack,
                     ),
-                    SizedBox(height: size.width * .02),
+                    SizedBox(height: 0),
+                    Text(listOfString[index],
+                     style: TextStyle(
+                       fontSize: 18,
+                       color: index == controller.currentIndex.value
+                           ? colorSecondary
+                           : colorBlack,
+                     ),
+                    ),
+                    SizedBox(height: 5),
                   ],
                 ),
               ),
@@ -82,5 +95,12 @@ class MainScreen extends StatelessWidget {
     Icons.message,
     Icons.support,
     Icons.person,
+  ];
+  List<String> listOfString = [
+    "Home",
+    "Jobs",
+    "Chats",
+    "Support",
+    "profile"
   ];
 }
