@@ -1,19 +1,20 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:service_seller/Screens/Home/Category/CategoryCardDesign.dart';
+import 'package:service_seller/Models/ServiceType.dart';
 
 import '../../../Models/Category.dart';
+import 'ServiceCardDesign.dart';
 
-class CategoryGridList extends StatelessWidget {
-  CategoryGridList({Key? key, required this.categoriesList}) : super(key: key);
-  List<Category> categoriesList;
+class ServicesGridList extends StatelessWidget {
+  ServicesGridList({Key? key, required this.servicesList}) : super(key: key);
+  List<ServiceType> servicesList;
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
         shrinkWrap: true,
         physics: BouncingScrollPhysics(),
-        itemCount: categoriesList.length,
+        itemCount: servicesList.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: 3 / 2,
             crossAxisSpacing: 20,
@@ -21,7 +22,7 @@ class CategoryGridList extends StatelessWidget {
             crossAxisCount: 2
         ),
         itemBuilder: (context, index){
-          return CategoryCardDesign(category: categoriesList[index],);
+          return ServiceCardDesign(serviceType: servicesList[index],);
     });
   }
 }

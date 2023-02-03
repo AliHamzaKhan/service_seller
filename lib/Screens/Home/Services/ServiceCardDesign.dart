@@ -3,13 +3,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../Models/Category.dart';
+import 'package:service_seller/Models/ServiceType.dart';
 import '../../../Utils/Colors.dart';
 
-class CategoryCardDesign extends StatelessWidget {
-  CategoryCardDesign({Key? key,required this.category}) : super(key: key);
-  Category category;
+class ServiceCardDesign extends StatelessWidget {
+  ServiceCardDesign({Key? key,required this.serviceType}) : super(key: key);
+  ServiceType serviceType;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -17,7 +16,7 @@ class CategoryCardDesign extends StatelessWidget {
       child: Container(
         height: Get.width / 2,
         child: CachedNetworkImage(
-            imageUrl: category.image!,
+            imageUrl: serviceType.serviceImage!,
            imageBuilder: (context, imageProvider) => Material(
              elevation: 8,
              shadowColor: Colors.grey.shade300,
@@ -34,7 +33,7 @@ class CategoryCardDesign extends StatelessWidget {
                 Positioned(
                     bottom: 5,
                     left: 5,
-                    child:  Text("${category.name}", style: TextStyle(color: colorBackground),))
+                    child:  Text("${serviceType.serviceType}", style: TextStyle(color: colorBackground),))
                ],
              ),
            ),
@@ -52,7 +51,7 @@ class CategoryCardDesign extends StatelessWidget {
                 Positioned(
                     bottom: 5,
                     left: 5,
-                    child:  Text("${category.name}"))
+                    child:  Text("${serviceType.serviceType}"))
               ],
             ),
           ),

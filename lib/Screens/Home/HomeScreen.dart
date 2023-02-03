@@ -4,11 +4,11 @@ import 'package:get/get.dart';
 import 'package:service_seller/Controllers/HomeController.dart';
 import 'package:service_seller/Screens/Home/adBanners/BannerListDesign.dart';
 import 'package:service_seller/Screens/Home/adBanners/BannerShimmerDesign.dart';
-import '../../Constant/MainAccess.dart';
 import '../../Utils/Colors.dart';
-import 'Category/CategoryGridList.dart';
-import 'Category/CategoryShimmerDesign.dart';
 import 'HeaderWithSearchBar.dart';
+import 'Services/ServiceGridList.dart';
+import 'Services/ServiceShimmerDesign.dart';
+import 'ViewAll/ViewAllServicesScreen.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -71,7 +71,9 @@ class HomeScreen extends StatelessWidget {
                         fontWeight: FontWeight.w500),
                   ),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(()=> ViewAllServicesScreen());
+                      },
                       child: Text(
                         "View all",
                         style: TextStyle(color: colorSecondary, fontSize: 18),
@@ -80,10 +82,10 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Obx(() => controller.isCategoryLoaded.value
-                  ? CategoryGridList(
-                categoriesList: controller.categoryList,
+                  ? ServicesGridList(
+                servicesList: controller.servicesList,
               )
-                  : const CategoryShimmerDesign()
+                  : const ServiceShimmerDesign()
               ),
               const SizedBox(height: 30),
             ],
