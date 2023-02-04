@@ -72,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   TextButton(
                       onPressed: () {
-                        Get.to(()=> ViewAllServicesScreen());
+                        Get.to(()=> ViewAllServicesScreen(servicesList: controller.servicesList,));
                       },
                       child: Text(
                         "View all",

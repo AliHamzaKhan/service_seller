@@ -10,6 +10,9 @@ import '../Screens/Support/SupportScreen.dart';
 
 class MainController extends GetxController{
   static MainController instance = Get.find();
+
+
+  var isSeller = false.obs;
   var pages = [
     HomeScreen(),
     JobScreen(),

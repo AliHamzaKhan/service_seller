@@ -8,6 +8,7 @@ var colorPrimary = Color(0xFF1DA1F2);
 var colorTitle = Color(0xFF2C3D50);
 var colorSecondary = Color(0xFF2C3D50);
 var colorBackground = Color(0xFFF8F8F8);
+var colorBackground2 = Color(0xFFD5D0D0);
 
 
 var colorHigh = Colors.redAccent;

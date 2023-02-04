@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../Models/User.dart';
 import '../../Utils/Colors.dart';
+import 'Search/SearchServiceScreen.dart';
 
 class HeaderWithSearchBar extends StatelessWidget {
   HeaderWithSearchBar({Key? key, this.userName}) : super(key: key);
@@ -34,6 +36,9 @@ class HeaderWithSearchBar extends StatelessWidget {
             ],
           ),
           child: TextField(
+            onTap: (){
+                Get.to(()=>SearchServiceScreen());
+            },
             style: TextStyle(
               fontSize: 22.0,
               color: colorDarkGrey,

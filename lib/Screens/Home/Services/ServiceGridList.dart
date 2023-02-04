@@ -15,7 +15,7 @@ class ServicesGridList extends StatelessWidget {
         shrinkWrap: true,
         physics: BouncingScrollPhysics(),
         itemCount: servicesList.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: 3 / 2,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20,

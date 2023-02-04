@@ -12,14 +12,17 @@ class HomeController extends GetxController{
   static HomeController instance = Get.find();
 
   RxList<MyBanner> bannersList = <MyBanner>[].obs;
-  var isBannerLoaded = false.obs;
+  var isBannerLoaded = true.obs;
 
   RxList<ServiceType> servicesList = <ServiceType>[].obs;
-  var isCategoryLoaded = false.obs;
+  var isCategoryLoaded = true.obs;
 
-  loadBanner() async {}
+  loadBanner() async {
+    bannersList.addAll(demoBannerData);
+  }
   loadService() async {
     servicesList.addAll(demoServicesType);
+    print(servicesList.length);
   }
 
   @override

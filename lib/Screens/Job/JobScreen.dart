@@ -22,7 +22,8 @@ class JobScreen extends StatelessWidget {
         length: 2,
         child: Scaffold(
           appBar:  TabBar(
-            indicatorColor: Colors.transparent,
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorColor: colorSecondary,
             padding: EdgeInsets.symmetric(horizontal: 20),
             tabs: [
               Tab(child: Text("Pending", style: TextStyle(color: colorSecondary, fontSize: 20)),),
