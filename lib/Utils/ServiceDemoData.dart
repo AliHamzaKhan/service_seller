@@ -1,4 +1,5 @@
 import '../Models/Banner.dart';
+import '../Models/ServiceSearchWords.dart';
 import '../Models/ServiceType.dart';
 
 List<ServiceType> demoServicesType = [
@@ -191,3 +192,9 @@ List<MyBanner> demoBannerData = [
       bannerDiscount: 20,
       bannerImage: ""),
 ];
+List<ServiceSearchWords>  listWords = [
+  ServiceSearchWords(titlelist: 'oneWord',definitionlist:  'OneWord definition'),
+  ServiceSearchWords(titlelist: 'twoWord', definitionlist: 'TwoWord definition.'),
+  ServiceSearchWords(titlelist: 'TreeWord', definitionlist: 'TreeWord definition'),
+];
+

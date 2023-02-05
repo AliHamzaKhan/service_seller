@@ -20,6 +20,6 @@ class MainController extends GetxController{
     SupportScreen(),
     SettingScreen()
   ];
-  var currentIndex = 0.obs;
+  var currentIndex = 4.obs;
 
 }

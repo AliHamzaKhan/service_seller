@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:service_seller/Utils/ServiceDemoData.dart';
 
 import '../../Models/User.dart';
 import '../../Utils/Colors.dart';
+import 'Search/SearchBar.dart';
 import 'Search/SearchServiceScreen.dart';
 
 class HeaderWithSearchBar extends StatelessWidget {
@@ -31,13 +33,13 @@ class HeaderWithSearchBar extends StatelessWidget {
               BoxShadow(
                 offset: const Offset(1, 5),
                 blurRadius: 3,
-                color: Colors.blueGrey.withOpacity(0.3),
+                color: colorTitle.withOpacity(0.3),
               ),
             ],
           ),
           child: TextField(
             onTap: (){
-                Get.to(()=>SearchServiceScreen());
+              showSearch(context: context, delegate: DataSearch(listWords));
             },
             style: TextStyle(
               fontSize: 22.0,
@@ -52,7 +54,7 @@ class HeaderWithSearchBar extends StatelessWidget {
               ),
               hintText: "Search services",
               border: OutlineInputBorder(
-                borderSide: const BorderSide(color: Colors.white, width: 10.0),
+                borderSide: BorderSide(color: colorTitle, width: 10.0),
                 borderRadius: BorderRadius.circular(7),
               ),
             ),

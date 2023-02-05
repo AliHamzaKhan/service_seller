@@ -1,19 +1,16 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:get/get.dart';
+import 'package:service_seller/Controllers/SettingController.dart';
+import 'package:service_seller/Screens/Setting/SellerSettingScreen.dart';
+import 'package:service_seller/Screens/Setting/UserSettingScreen.dart';
 
 import '../../Utils/Colors.dart';
 
-class SettingScreen extends StatefulWidget {
-  const SettingScreen({Key? key}) : super(key: key);
 
-  @override
-  State<SettingScreen> createState() => _SettingScreenState();
-}
-
-class _SettingScreenState extends State<SettingScreen> {
-  var isSeller = false;
-
+class SettingScreen extends StatelessWidget {
+  var controller = Get.put(SettingController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,22 +25,30 @@ class _SettingScreenState extends State<SettingScreen> {
                 Container(
                   height: Get.height * 0.17,
                   color: colorSecondary,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(width: 10),
-                      CircleAvatar(
-                        radius: 25, // Image radius
-                        backgroundImage: NetworkImage('imageUrl'),
-                      ),
-                      SizedBox(width: 25),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [Text("UserName"), SizedBox(height: 10),Text("userNumber")],
-                      )
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(width: 10),
+                        CircleAvatar(
+                          radius: 30, // Image radius
+                          backgroundImage: NetworkImage('imageUrl'),
+                        ),
+                        SizedBox(width: 17),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("UserName", style: TextStyle(color: colorBackground2, fontSize: 20, fontWeight: FontWeight.bold),),
+                            SizedBox(height: 3),
+                            Text("userNumber", style: TextStyle(color: colorBackground2, fontSize: 20, fontWeight: FontWeight.normal)),
+                            SizedBox(height: 10),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 Positioned(
@@ -51,37 +56,39 @@ class _SettingScreenState extends State<SettingScreen> {
                     left: 0,
                     right: 0,
                     child: Container(
-                      margin: EdgeInsets.all(20),
+                      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                       padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: colorPrimary),
+                          borderRadius: BorderRadius.circular(10),
+                          color: colorBackground,
+                        boxShadow: [
+                          BoxShadow(
+                            color: colorTitle.withOpacity(0.5),
+                            spreadRadius: 3,
+                            blurRadius: 5,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Seller mode"),
-                          FlutterSwitch(
-                            onToggle: (value) {
-                              setState(() {
-                                isSeller = !isSeller;
-                              });
-                            },
-                            value: isSeller,
-                            height: 30,
-                            width: 70,
-                            activeColor: colorDarkGrey,
-                            inactiveColor: colorBackground,
-                            toggleSize: 45.0,
-                            // borderRadius: 30.0,
-                            padding: 8.0,
-                            showOnOff: false,
-                            valueFontSize: 10,
-                            toggleColor: colorBlack,
-                            activeToggleColor: colorBlack,
-                            inactiveTextColor: colorBackground,
-                            activeTextColor: colorDarkGrey,
-
+                          Text("Seller mode", style: TextStyle(color: colorBlack, fontSize: 18),),
+                         
+                          Row(
+                            children: [
+                              Text("Off", style: TextStyle(color: colorBlack, fontSize: 15)),
+                             Obx(() =>  CupertinoSwitch(
+                                 activeColor: colorTitle,
+                                 thumbColor: colorDarkGrey,
+                                 trackColor: colorBackground2,
+                                 value: controller.isSeller.value,
+                                 onChanged: (value){
+                                   controller.isSeller.value = value;
+                                 }),),
+                              Text("On", style: TextStyle(color: colorBlack, fontSize: 15))
+                            ],
                           )
                         ],
                       ),
@@ -89,9 +96,7 @@ class _SettingScreenState extends State<SettingScreen> {
               ],
             ),
           ),
-          Container(
-            color: colorBackground,
-          )
+          Expanded(child: Obx(() => controller.isSeller.value ? SellerSettingScreen() : UserSettingScreen()))
         ],
       ),
     );

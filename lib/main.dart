@@ -9,6 +9,7 @@ import 'Screens/Home/HomeScreen.dart';
 import 'Screens/Main/MainScreen.dart';
 import 'Screens/Registry/LogInScreen.dart';
 import 'Screens/Registry/RegisterUserScreen.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
         primaryColor:  HexColor('#DC54FE'),
         scaffoldBackgroundColor: Colors.grey.shade100,
         primarySwatch: Colors.grey,
+        fontFamily: GoogleFonts.openSans().fontFamily
       ),
       getPages:  MyRoutes.getPages,
       home: MainScreen(),
