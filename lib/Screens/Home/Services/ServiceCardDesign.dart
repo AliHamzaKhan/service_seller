@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:service_seller/Models/ServiceType.dart';
 import '../../../Utils/Colors.dart';
+import '../ServiceDetail/ServiceDetailScreen.dart';
 
 class ServiceCardDesign extends StatelessWidget {
   ServiceCardDesign({Key? key,required this.serviceType}) : super(key: key);
@@ -12,7 +13,12 @@ class ServiceCardDesign extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){},
+      onTap: (){
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ServiceDetailScreen()),
+        );
+      },
       child: Container(
         height: Get.width / 2,
         decoration: BoxDecoration(
