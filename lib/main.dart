@@ -6,6 +6,7 @@ import 'Constant/MainAccess.dart';
 import 'Controllers/AuthController.dart';
 import 'Routes/MyRoutes.dart';
 import 'Screens/Home/HomeScreen.dart';
+import 'Screens/Home/ServiceDetail/ServiceDetailScreen.dart';
 import 'Screens/Main/MainScreen.dart';
 import 'Screens/Registry/LogInScreen.dart';
 import 'Screens/Registry/RegisterUserScreen.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
-      defaultTransition: Transition.fadeIn,
+      defaultTransition: Transition.leftToRight,
       theme: ThemeData(
         primaryColor:  HexColor('#DC54FE'),
         scaffoldBackgroundColor: Colors.grey.shade100,
@@ -35,7 +36,8 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.openSans().fontFamily
       ),
       getPages:  MyRoutes.getPages,
-      home: MainScreen(),
+      // home: MainScreen(),
+      home: ServiceDetailScreen(),
     );
   }
 }
