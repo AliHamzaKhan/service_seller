@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:service_seller/Models/ServiceType.dart';
 
-import '../../../Models/Category.dart';
+import '../../../Models/MyService.dart';
 import 'ServiceCardDesign.dart';
 
 class ServicesGridList extends StatelessWidget {

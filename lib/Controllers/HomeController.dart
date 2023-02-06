@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:service_seller/Models/ServiceType.dart';
 
 import '../Models/Banner.dart';
-import '../Models/Category.dart';
+import '../Models/MyService.dart';
 import '../Utils/ServiceDemoData.dart';
 
 class HomeController extends GetxController{
