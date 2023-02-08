@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:service_seller/Config/SizeConfig.dart';
 import 'package:service_seller/Controllers/HomeController.dart';
 import 'package:service_seller/Screens/Home/adBanners/BannerListDesign.dart';
 import 'package:service_seller/Screens/Home/adBanners/BannerShimmerDesign.dart';
@@ -17,6 +18,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       backgroundColor: colorBackground,
       appBar: AppBar(

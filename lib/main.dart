@@ -6,6 +6,7 @@ import 'Constant/MainAccess.dart';
 import 'Controllers/AuthController.dart';
 import 'Routes/MyRoutes.dart';
 import 'Screens/Home/HomeScreen.dart';
+import 'Screens/Home/ServiceDetail/BookServiceDetailScreen.dart';
 import 'Screens/Home/ServiceDetail/ServiceDetailScreen.dart';
 import 'Screens/Main/MainScreen.dart';
 import 'Screens/Registry/LogInScreen.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         primaryColor:  HexColor('#DC54FE'),
         scaffoldBackgroundColor: Colors.grey.shade100,
         primarySwatch: Colors.grey,
-        fontFamily: GoogleFonts.openSans().fontFamily
+        fontFamily: GoogleFonts.poppins().fontFamily
       ),
       getPages:  MyRoutes.getPages,
       // home: MainScreen(),

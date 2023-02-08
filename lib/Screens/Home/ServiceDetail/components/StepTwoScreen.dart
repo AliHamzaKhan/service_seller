@@ -49,10 +49,12 @@ class StepTwoScreen extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                     ),
                     Container(
+                      width: 100,
                       decoration: BoxDecoration(color: colorBackground),
                       padding: EdgeInsets.all(5),
                       alignment: Alignment.center,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(Icons.arrow_drop_down_rounded, color: textColor, size: 18,),
                           Padding(
