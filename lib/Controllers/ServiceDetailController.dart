@@ -1,35 +1,34 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../Screens/Home/ServiceDetail/components/AddressDetailScreen.dart';
+import 'package:service_seller/Screens/Home/ServiceDetail/components/StepOneScreen.dart';
+import '../Models/MyService.dart';
+import '../Screens/Home/ServiceDetail/components/StepTwoScreen.dart';
 import '../Screens/Home/ServiceDetail/components/ServiceDateAndTimeScreen.dart';
 import '../Screens/Home/ServiceDetail/components/ServiceMainScreen.dart';
 
-class ServiceDetailController extends GetxController{
-  var steps = [
-    ServiceMainScreen(),
-    ServiceDateAndTimeScreen(),
-    AddressDetailScreen(),
-    SizedBox(),
-  ].obs;
+class ServiceDetailController extends GetxController {
+  // var steps = [
+  //   ServiceMainScreen(),
+  //   ServiceDateAndTimeScreen(),
+  //   StepTwoScreen(),
+  //   SizedBox(),
+  // ].obs;
 
-  var currentStep = 0.obs;
+  var steps = [StepOneScreen(), StepTwoScreen()];
 
-  stepState() {
-    if (currentStep.value == steps.length-1) {
-      return true;
-    } else {
-      currentStep.value++;
-      return false;
-    }
+  var stepsData = {"step_1": false, "step_2": false};
+
+  var currentStep = 1.obs;
+  MyService? service;
+
+  setStepData(stepData, stepValue) {
+    stepsData[stepData] = stepValue;
+    update();
   }
-  stepStateBack() {
-    if (currentStep.value == 0) {
-      return true;
-    } else {
-      currentStep.value--;
-      return false;
-    }
+  updateStep(index){
+    setStepData("step_1", true);
+    currentStep.value = index;
+    update();
   }
+  bookService(){}
 }
