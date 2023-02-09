@@ -13,13 +13,13 @@ class ServicesGridList extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
         shrinkWrap: true,
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         itemCount: servicesList.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: 3 / 2,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20,
-            crossAxisCount: 2
+            crossAxisCount: servicesList.length == 1 ? 1 : 2
         ),
         itemBuilder: (context, index){
           return ServiceCardDesign(serviceType: servicesList[index],);

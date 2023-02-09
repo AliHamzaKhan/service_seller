@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:service_seller/Config/SizeConfig.dart';
@@ -32,10 +31,14 @@ class HomeScreen extends StatelessWidget {
               size: 22,
               color: colorTitle,
             )),
-        title: Text(
-          "Karachi Service",
-          style: TextStyle(
-              color: colorTitle, fontSize: 25, fontWeight: FontWeight.bold),
+        title: Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: Image.asset(
+            "assets/images/logo-no-background.png",
+            fit: BoxFit.fill,
+            width: 100,
+            height: 40,
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -62,38 +65,62 @@ class HomeScreen extends StatelessWidget {
                   ? BannerListDesign(bannersList: controller.bannersList)
                   : const BannerShimmerDesign()),
               const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Popular Services",
-                    style: TextStyle(
-                        color: colorBlack,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  TextButton(
-                      onPressed: () {
-                        Get.to(()=> ViewAllServicesScreen(servicesList: controller.servicesList,));
-                      },
-                      child: Text(
-                        "View all",
-                        style: TextStyle(color: colorSecondary, fontSize: 18),
-                      ))
-                ],
-              ),
+              buildRow(
+                  title: "Popular Services",
+                  showViewAll: true,
+                  onClick: () {
+                    Get.to(() => ViewAllServicesScreen(
+                          servicesList: controller.servicesList,
+                        ));
+                  }),
               const SizedBox(height: 10),
               Obx(() => controller.isCategoryLoaded.value
                   ? ServicesGridList(
-                servicesList: controller.servicesList,
-              )
-                  : const ServiceShimmerDesign()
-              ),
+                      servicesList: controller.servicesList,
+                    )
+                  : const ServiceShimmerDesign()),
+              const SizedBox(height: 10),
+              buildRow(title: "Cleaning", showViewAll: false),
+              const SizedBox(height: 10),
+              buildRow(title: "Laundry", showViewAll: false),
+              const SizedBox(height: 10),
+              buildRow(title: "Handyman Services", showViewAll: false),
+              const SizedBox(height: 10),
+              buildRow(title: "Pest Control", showViewAll: false),
+              const SizedBox(height: 10),
+              buildRow(title: "Spa and Saloon", showViewAll: false),
+              const SizedBox(height: 10),
+              buildRow(title: "Pet Grooming", showViewAll: false),
+              const SizedBox(height: 10),
+              buildRow(title: "Appliances", showViewAll: false),
+              const SizedBox(height: 10),
+              buildRow(title: "Moving and Storage", showViewAll: false),
               const SizedBox(height: 30),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Row buildRow({title, onClick, showViewAll}) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+              color: colorBlack, fontSize: 18, fontWeight: FontWeight.w500),
+        ),
+        showViewAll
+            ? TextButton(
+                onPressed: onClick,
+                child: Text(
+                  "View all",
+                  style: TextStyle(color: colorSecondary, fontSize: 18),
+                ))
+            : SizedBox()
+      ],
     );
   }
 }

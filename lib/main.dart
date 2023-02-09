@@ -37,8 +37,8 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.poppins().fontFamily
       ),
       getPages:  MyRoutes.getPages,
-      // home: MainScreen(),
-      home: ServiceDetailScreen(),
+      home: MainScreen(),
+      // home: ServiceDetailScreen(),
     );
   }
 }

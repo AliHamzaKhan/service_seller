@@ -29,57 +29,60 @@ class MainScreen extends StatelessWidget {
               ],
               borderRadius: BorderRadius.circular(50),
             ),
-            child: ListView.builder(
-              itemCount: controller.pages.length,
-              scrollDirection: Axis.horizontal,
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              itemBuilder: (context, index) => InkWell(
-                onTap: () {
-                  controller.currentIndex.value = index;
-                  controller.update();
-                },
-                splashColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    AnimatedContainer(
-                      duration: Duration(milliseconds: 500),
-                      curve: Curves.fastLinearToSlowEaseIn,
-                      margin: EdgeInsets.only(
-                        // bottom: index == controller.currentIndex.value ? 0 : 10,
-                        top: index == controller.currentIndex.value ? 0 : 10,
-                        right: 20,
-                        left: 20,
-                      ),
-                      width: 45,
-                      height: index == controller.currentIndex.value ? 5 : 0,
-                      decoration: BoxDecoration(
-                        color: colorSecondary,
-                        borderRadius: BorderRadius.vertical(
-                          bottom: Radius.circular(10),
+            child: Center(
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: controller.pages.length,
+                scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                itemBuilder: (context, index) => InkWell(
+                  onTap: () {
+                    controller.currentIndex.value = index;
+                    controller.update();
+                  },
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      AnimatedContainer(
+                        duration: Duration(milliseconds: 500),
+                        curve: Curves.fastLinearToSlowEaseIn,
+                        margin: EdgeInsets.only(
+                          // bottom: index == controller.currentIndex.value ? 0 : 10,
+                          top: index == controller.currentIndex.value ? 0 : 10,
+                          right: 10,
+                          left: 10,
+                        ),
+                        width: 50,
+                        height: index == controller.currentIndex.value ? 5 : 0,
+                        decoration: BoxDecoration(
+                          color: colorSecondary,
+                          borderRadius: BorderRadius.vertical(
+                            bottom: Radius.circular(10),
+                          ),
                         ),
                       ),
-                    ),
-                    Icon(
-                      listOfIcons[index],
-                      size: 25,
-                      color: index == controller.currentIndex.value
-                          ? colorSecondary
-                          : colorBlack,
-                    ),
-                    SizedBox(height: 0),
-                    Text(listOfString[index],
-                     style: TextStyle(
-                       fontSize: 18,
-                       color: index == controller.currentIndex.value
-                           ? colorSecondary
-                           : colorBlack,
-                     ),
-                    ),
-                    SizedBox(height: 5),
-                  ],
+                      Icon(
+                        listOfIcons[index],
+                        size: 25,
+                        color: index == controller.currentIndex.value
+                            ? colorSecondary
+                            : colorBlack,
+                      ),
+                      SizedBox(height: 0),
+                      Text(listOfString[index],
+                       style: TextStyle(
+                         fontSize: 15,
+                         color: index == controller.currentIndex.value
+                             ? colorSecondary
+                             : colorBlack,
+                       ),
+                      ),
+                      SizedBox(height: 0),
+                    ],
+                  ),
                 ),
               ),
             ),

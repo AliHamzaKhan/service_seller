@@ -57,7 +57,7 @@ class ServiceDetailScreen extends StatelessWidget {
              // ServiceTypeCheck(serviceType: service!.serviceType!),
 
               Text("Do you have any special instructions?", style: TextStyle(color: textColor, fontSize: 20),),
-              Text("Optional", style: TextStyle(color: textColor.withOpacity(0.5), fontSize: 18),),
+              Text("Optional", style: TextStyle(color: textColor.withOpacity(0.5), fontSize: 12),),
               const SizedBox(height: 10),
               TextFormField(
                 minLines: 2,
@@ -75,7 +75,29 @@ class ServiceDetailScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 15),
+              Text("Are there any photo you'd like to share?", style: TextStyle(color: textColor, fontSize: 20),),
+              Text("Optional", style: TextStyle(color: textColor.withOpacity(0.5), fontSize: 12),),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  RawMaterialButton(
+                    onPressed: () {},
+                    elevation: 2.0,
+                    fillColor: Colors.white,
+                    child: Icon(
+                      Icons.camera_alt_outlined,
+                      size: 35.0,
+                      color: colorSecondary,
+                    ),
+                    padding: EdgeInsets.all(15.0),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  ),
+                  SizedBox(height: 5),
+                  Text("Upload Photo", style: TextStyle( color: colorSecondary, fontSize: 12),)
+                ],
+              )
             ],
           ),
         ),
