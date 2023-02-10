@@ -21,7 +21,7 @@ class ServiceTypeGridList extends StatelessWidget {
             crossAxisCount: servicesList.length == 1 ? 1 : 2
         ),
         itemBuilder: (context, index){
-          return ServiceCardDesign(serviceType: servicesList[index],);
+          return ServiceTypeCardDesign(serviceType: servicesList[index],);
     });
   }
 }

@@ -7,8 +7,8 @@ import 'package:service_seller/Models/ServiceType.dart';
 import '../../../../../Utils/Colors.dart';
 import '../../../ServiceDetail/ServiceDetailScreen.dart';
 
-class ServiceCardDesign extends StatelessWidget {
-  ServiceCardDesign({Key? key,required this.serviceType}) : super(key: key);
+class ServiceTypeCardDesign extends StatelessWidget {
+  ServiceTypeCardDesign({Key? key,required this.serviceType}) : super(key: key);
   ServiceType serviceType;
   @override
   Widget build(BuildContext context) {

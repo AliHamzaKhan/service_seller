@@ -1,12 +1,22 @@
-
-
 import 'package:flutter/material.dart';
 
+import '../../../../../Models/MyService.dart';
+import 'ServiceCardDesign.dart';
+
 class ServiceListDesign extends StatelessWidget {
-  const ServiceListDesign({Key? key}) : super(key: key);
+  ServiceListDesign({required this.myServices, this.length});
+
+  final List<MyService> myServices;
+  final int? length;
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return ListView.builder(
+        shrinkWrap: true,
+        physics: const BouncingScrollPhysics(),
+        itemCount: length ?? myServices.length,
+        itemBuilder: (context, index) {
+      return ServiceCardDesign(myService: myServices[index],);
+    });
   }
 }
