@@ -3,11 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:service_seller/Models/ServiceType.dart';
 
-import '../../../Models/MyService.dart';
-import 'ServiceCardDesign.dart';
+import 'ServiceTypeCardDesign.dart';
 
-class ServicesGridList extends StatelessWidget {
-  ServicesGridList({Key? key, required this.servicesList}) : super(key: key);
+class ServiceTypeGridList extends StatelessWidget {
+  ServiceTypeGridList({Key? key, required this.servicesList}) : super(key: key);
   List<ServiceType> servicesList;
   @override
   Widget build(BuildContext context) {

@@ -8,6 +8,9 @@ import 'Routes/MyRoutes.dart';
 import 'Screens/Home/HomeScreen.dart';
 import 'Screens/Home/ServiceDetail/BookServiceDetailScreen.dart';
 import 'Screens/Home/ServiceDetail/ServiceDetailScreen.dart';
+import 'Screens/Home/ServicesType/components/ServiceListTile/ServiceCardDesign.dart';
+import 'Screens/Home/ServicesType/components/ServiceListTile/ServiceGridShimmerDesign.dart';
+import 'Screens/Home/ServicesType/components/ServiceListTile/ServiceListShimmerDesign.dart';
 import 'Screens/Main/MainScreen.dart';
 import 'Screens/Registry/LogInScreen.dart';
 import 'Screens/Registry/RegisterUserScreen.dart';
@@ -37,8 +40,8 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.poppins().fontFamily
       ),
       getPages:  MyRoutes.getPages,
-      home: MainScreen(),
-      // home: ServiceDetailScreen(),
+      // home: MainScreen(),
+      home: ServiceCardDesign(),
     );
   }
 }

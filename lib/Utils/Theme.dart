@@ -16,7 +16,7 @@ class Themes {
     appBarTheme: AppBarTheme(
       brightness: Brightness.dark,
       textTheme: TextTheme(
-        headline2: TextStyle(color: mC),
+        headline2: TextStyle(color: colorBackground2),
       ),
     ),
   );

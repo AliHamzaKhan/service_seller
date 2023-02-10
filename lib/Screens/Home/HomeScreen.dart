@@ -6,8 +6,8 @@ import 'package:service_seller/Screens/Home/adBanners/BannerListDesign.dart';
 import 'package:service_seller/Screens/Home/adBanners/BannerShimmerDesign.dart';
 import '../../Utils/Colors.dart';
 import 'HeaderWithSearchBar.dart';
-import 'Services/ServiceGridList.dart';
-import 'Services/ServiceShimmerDesign.dart';
+import 'ServicesType/components/ServiceType/ServiceTypeGridList.dart';
+import 'ServicesType/components/ServiceType/ServiceTypeShimmerDesign.dart';
 import 'ViewAll/ViewAllServicesScreen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -75,10 +75,10 @@ class HomeScreen extends StatelessWidget {
                   }),
               const SizedBox(height: 10),
               Obx(() => controller.isCategoryLoaded.value
-                  ? ServicesGridList(
+                  ? ServiceTypeGridList(
                       servicesList: controller.servicesList,
                     )
-                  : const ServiceShimmerDesign()),
+                  : const ServiceTypeShimmerDesign()),
               const SizedBox(height: 10),
               buildRow(title: "Cleaning", showViewAll: false),
               const SizedBox(height: 10),
@@ -93,6 +93,8 @@ class HomeScreen extends StatelessWidget {
               buildRow(title: "Pet Grooming", showViewAll: false),
               const SizedBox(height: 10),
               buildRow(title: "Appliances", showViewAll: false),
+              const SizedBox(height: 10),
+              buildRow(title: "Baby Sitting", showViewAll: false),
               const SizedBox(height: 10),
               buildRow(title: "Moving and Storage", showViewAll: false),
               const SizedBox(height: 30),

@@ -2,7 +2,6 @@
 
 import 'package:get/get.dart';
 import 'package:service_seller/Models/ServiceType.dart';
-
 import '../Models/Banner.dart';
 import '../Models/MyService.dart';
 import '../Utils/ServiceDemoData.dart';

@@ -16,9 +16,7 @@ class StepTwoScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: colorBackground2.withOpacity(0.5)),
@@ -26,42 +24,59 @@ class StepTwoScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      height: 120,
-                      width: Get.width,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
-                        ),
-                        image: DecorationImage(
-                            image: AssetImage("assets/images/get_started_background_one.jpg"),
-                          fit: BoxFit.cover
-                        ),
-                      )
+                    ClipRRect(
+                      child: Image.asset(
+                        "assets/images/get_started_background_one.jpg",
+                        height: 120,
+                        width: Get.width,
+                        fit: BoxFit.cover,
+                      ),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10),
+                      ),
                     ),
-                    SizedBox(height: 10),
-                    Text(
-                      "Spa Mist Hair Treatment Nourishes",
-                      style: TextStyle(
-                          color: textColor,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Container(
-                      width: 100,
-                      decoration: BoxDecoration(color: colorBackground),
-                      padding: EdgeInsets.all(5),
-                      alignment: Alignment.center,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                    Padding(
+                      padding:  EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(Icons.arrow_drop_down_rounded, color: textColor, size: 18,),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 5),
-                            child: Text("1"),
+                          Text(
+                            "Spa Mist Hair Treatment Nourishes",
+                            style: TextStyle(
+                                color: textColor,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
                           ),
-                          Icon(Icons.arrow_drop_up_rounded, color: textColor, size: 18,)
+                          SizedBox(height: 10),
+                          Container(
+                            width: 100,
+                            decoration: BoxDecoration(
+                                color: colorBackground,
+                                borderRadius: BorderRadius.circular(10)),
+                            padding: EdgeInsets.all(1),
+                            alignment: Alignment.center,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.arrow_drop_down_rounded,
+                                  color: textColor,
+                                  size: 18,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                                  child: Text("1"),
+                                ),
+                                Icon(
+                                  Icons.arrow_drop_up_rounded,
+                                  color: textColor,
+                                  size: 18,
+                                )
+                              ],
+                            ),
+                          )
                         ],
                       ),
                     )
@@ -69,10 +84,13 @@ class StepTwoScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 10),
-              Text("Price Detail", style: TextStyle(
-                  color: textColor,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold),),
+              Text(
+                "Price Detail",
+                style: TextStyle(
+                    color: textColor,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
               SizedBox(height: 10),
               Container(
                 padding: EdgeInsets.symmetric(vertical: 20),
@@ -81,15 +99,18 @@ class StepTwoScreen extends StatelessWidget {
                     color: colorBackground2.withOpacity(0.5)),
                 child: Column(
                   children: [
-                    createRow("Price","120.00"),
-                    createRow("Subtotal","120.00 * 1 = 12.00"),
-                    createRowWithButton("couple", "Apply Coupon", (){}),
+                    createRow("Price", "120.00"),
+                    createRow("Subtotal", "120.00 * 1 = 12.00"),
+                    createRowWithButton("couple", "Apply Coupon", () {}),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Total Amount", style: TextStyle(color: textColor.withOpacity(0.5)),),
+                          Text(
+                            "Total Amount",
+                            style: TextStyle(color: textColor.withOpacity(0.5)),
+                          ),
                           Text("\$12.00", style: TextStyle(color: colorPrimary))
                         ],
                       ),
@@ -103,26 +124,39 @@ class StepTwoScreen extends StatelessWidget {
       ),
     );
   }
-  createRow(key, value){
+
+  createRow(key, value) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(key, style: TextStyle(color: textColor.withOpacity(0.5)),),
+          Text(
+            key,
+            style: TextStyle(color: textColor.withOpacity(0.5)),
+          ),
           Text("\$${value}", style: TextStyle(color: textColor))
         ],
       ),
     );
   }
-  createRowWithButton(key, value, click){
+
+  createRowWithButton(key, value, click) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(key, style: TextStyle(color: textColor.withOpacity(0.5)),),
-          TextButton(onPressed: click, child: Text(value, style: TextStyle(color: colorPrimary),))
+          Text(
+            key,
+            style: TextStyle(color: textColor.withOpacity(0.5)),
+          ),
+          TextButton(
+              onPressed: click,
+              child: Text(
+                value,
+                style: TextStyle(color: colorPrimary),
+              ))
         ],
       ),
     );

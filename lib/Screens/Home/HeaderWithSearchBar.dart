@@ -50,7 +50,7 @@ class HeaderWithSearchBar extends StatelessWidget {
               prefixIcon: Icon(
                 Icons.search_outlined,
                 color: colorDarkGrey,
-                size: 15,
+                size: 25,
               ),
               hintText: "Search services",
               border: OutlineInputBorder(

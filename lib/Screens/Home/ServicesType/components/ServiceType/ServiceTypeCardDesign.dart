@@ -4,8 +4,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:service_seller/Models/ServiceType.dart';
-import '../../../Utils/Colors.dart';
-import '../ServiceDetail/ServiceDetailScreen.dart';
+import '../../../../../Utils/Colors.dart';
+import '../../../ServiceDetail/ServiceDetailScreen.dart';
 
 class ServiceCardDesign extends StatelessWidget {
   ServiceCardDesign({Key? key,required this.serviceType}) : super(key: key);
@@ -44,7 +44,7 @@ class ServiceCardDesign extends StatelessWidget {
                 Positioned(
                     bottom: 7,
                     left: 7,
-                    child:  Text("${serviceType.serviceType}", style: TextStyle(color: colorBackground2, fontWeight: FontWeight.bold), overflow: TextOverflow.fade,))
+                    child:  Text("${serviceType.serviceType}", style: TextStyle(color: colorBackground2, fontSize: 18,fontWeight: FontWeight.bold), overflow: TextOverflow.fade,))
                ],
              ),
            ),

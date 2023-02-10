@@ -12,14 +12,15 @@ class BannerCardDesign extends StatelessWidget {
   Widget build(BuildContext context) {
     return CachedNetworkImage(
         imageUrl: myBanner.bannerImage!,
-        fit: BoxFit.cover,
+        fit: BoxFit.fill,
         imageBuilder: (context, imageProvider) => Container(
           height: 100,
           decoration: BoxDecoration(
               color: colorPrimary,
-              borderRadius: BorderRadius.circular(7),
+              borderRadius: BorderRadius.circular(10),
               image: DecorationImage(
-                image: imageProvider
+                image: imageProvider,
+                fit: BoxFit.cover
               )
           ),
           child: Row(
@@ -28,12 +29,12 @@ class BannerCardDesign extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(20),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("${myBanner.bannerName}"),
-                      SizedBox(height: 20),
-                      Text("${myBanner.bannerText}")
+                      Text("${myBanner.bannerName}", style: TextStyle(color: textColor, fontSize: 22, fontWeight: FontWeight.bold),),
+                    //  SizedBox(height: 20),
+                      Text("${myBanner.bannerText}%", style: TextStyle(color: textColor, fontSize: 17))
                     ],
                   ),
                 ),
@@ -50,7 +51,7 @@ class BannerCardDesign extends StatelessWidget {
             ],
           ),
         ) ,
-        placeholder: (context, url) => CircularProgressIndicator(),
+        placeholder: (context, url) => Center(child: CircularProgressIndicator()),
         errorWidget: (context, url, error) => Icon(Icons.error),
     );
   }
